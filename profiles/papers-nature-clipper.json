@@ -1,0 +1,63 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "papers-Nature",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:section[data-title=Abstract]|remove_html:(\"svg\")|markdown}}\n\n{{selectorHtml:.main-content|remove_html:(\".c-article__pill-button,.c-article-section__figure-link,svg\")|markdown}}\n\n## References\n{{selectorHtml:#Bib1-content .c-article-references|remove_html:(\".c-article-references__links,svg\")|markdown}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:meta[name=citation_author]?content|first|split:\",\"|first}}({{meta:name:citation_publication_date|slice:0,4}})-{{meta:name:citation_title|split:\" \"|slice:0,3|join:\" \"}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "doi",
+			"value": "{{meta:name:citation_doi}}",
+			"type": "text"
+		},
+		{
+			"name": "paper_id",
+			"value": "{{meta:name:citation_doi|split:\"/\"|last}}",
+			"type": "text"
+		},
+		{
+			"name": "authors",
+			"value": "{{selector:.c-article-author-list a[data-test=author-name]|unique|wikilink}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{meta:name:citation_online_date|date:\"YYYY-MM-DD\"}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "journal",
+			"value": "{{meta:name:citation_journal_title}}",
+			"type": "text"
+		},
+		{
+			"name": "collection",
+			"value": "papers",
+			"type": "text"
+		},
+		{
+			"name": "keywords",
+			"value": "{{selector:.c-article-subject-list__subject|unique}}",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://www.nature.com/articles/"
+	],
+	"noteNameFormat": "{{meta:name:citation_title|safe_name}}",
+	"path": "references/papers"
+}

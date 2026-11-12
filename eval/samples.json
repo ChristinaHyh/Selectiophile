@@ -1,0 +1,33 @@
+[
+  {"label":"Research Question","lang":"en","paperTitle":"Sleep and Memory Consolidation in Adolescents","quote":"Here we ask whether slow-wave sleep is necessary for declarative memory consolidation during adolescence.","comment":"This is the core question of the paper."},
+  {"label":"Research Question","lang":"zh","paperTitle":"Sleep and Memory Consolidation in Adolescents","quote":"Whether the same mechanism operates in adolescents has remained unknown.","comment":"作者想回答的就是这个问题"},
+  {"label":"Research Question","lang":"none","paperTitle":"Gut Microbiota and Depression","quote":"We hypothesized that transplanting microbiota from depressed patients would induce depressive-like behavior in germ-free mice.","comment":""},
+
+  {"label":"Main Findings","lang":"en","paperTitle":"Sleep and Memory Consolidation in Adolescents","quote":"Recall improved by 23% after a night of undisturbed sleep compared with 4% after selective deprivation (p < 0.001).","comment":"Key result."},
+  {"label":"Main Findings","lang":"zh","paperTitle":"Gut Microbiota and Depression","quote":"Recipient mice displayed significantly reduced sucrose preference and increased immobility.","comment":"这是最主要的结果"},
+  {"label":"Main Findings","lang":"none","paperTitle":"Language Models for Protein Design","quote":"The designed sequences folded correctly in 67% of cases, as confirmed by crystallography.","comment":""},
+
+  {"label":"Novelty","lang":"en","paperTitle":"Language Models for Protein Design","quote":"Unlike previous approaches that require a structural template, our method generates functional sequences from sequence data alone.","comment":"What sets this apart from earlier work."},
+  {"label":"Novelty","lang":"zh","paperTitle":"Single-Cell Atlas of the Aging Liver","quote":"To our knowledge, this is the first single-cell atlas spanning the full human lifespan of the liver.","comment":"这篇的创新点"},
+  {"label":"Novelty","lang":"none","paperTitle":"Graph Transformers for Traffic Forecasting","quote":"We introduce a novel attention mechanism that scales linearly with the number of edges, which no prior graph transformer achieves.","comment":""},
+
+  {"label":"Limitations of Experimental Design","lang":"en","paperTitle":"Gut Microbiota and Depression","quote":"All donors were recruited from a single hospital and only male mice were used.","comment":"Sample is too narrow to generalize."},
+  {"label":"Limitations of Experimental Design","lang":"zh","paperTitle":"Sleep and Memory Consolidation in Adolescents","quote":"Participants were tested in a single session with no counterbalancing of the task order.","comment":"没有做平衡，实验设计有缺陷"},
+  {"label":"Limitations of Experimental Design","lang":"none","paperTitle":"Single-Cell Atlas of the Aging Liver","quote":"A limitation of our study is the small cohort of only six donors and the absence of a blinded analysis.","comment":""},
+
+  {"label":"Insufficient Evidence or Alternative Explanations","lang":"en","paperTitle":"Gut Microbiota and Depression","quote":"These data suggest that the microbiota causes depression in humans.","comment":"A big leap from mouse data; antibiotics could explain this instead."},
+  {"label":"Insufficient Evidence or Alternative Explanations","lang":"zh","paperTitle":"Language Models for Protein Design","quote":"Therefore the model has learned the underlying biophysics of protein folding.","comment":"证据不足，也可能只是记住了训练集里的模式"},
+  {"label":"Insufficient Evidence or Alternative Explanations","lang":"none","paperTitle":"Sleep and Memory Consolidation in Adolescents","quote":"However, the observed improvement could equally reflect reduced fatigue at test rather than consolidation.","comment":""},
+
+  {"label":"Ideas for My Research","lang":"en","paperTitle":"Graph Transformers for Traffic Forecasting","quote":"We encode each node's neighborhood with a learned positional embedding.","comment":"I could borrow this encoding for my own sensor network model."},
+  {"label":"Ideas for My Research","lang":"zh","paperTitle":"Single-Cell Atlas of the Aging Liver","quote":"Cells were clustered with a batch-aware integration step before differential expression analysis.","comment":"这个批次校正方法可以用到我的数据上"},
+  {"label":"Ideas for My Research","lang":"zh","paperTitle":"Language Models for Protein Design","quote":"Sequences were filtered with a learned fitness predictor before synthesis.","comment":"我的课题也可以先加一步这样的筛选"},
+
+  {"label":"Potential Follow-up Experiments","lang":"en","paperTitle":"Gut Microbiota and Depression","quote":"Transplants were performed only in adult mice.","comment":"Next step: repeat the transplant in juvenile mice and track behavior over time."},
+  {"label":"Potential Follow-up Experiments","lang":"zh","paperTitle":"Sleep and Memory Consolidation in Adolescents","quote":"Slow-wave activity was recorded but not manipulated.","comment":"后续可以设计一个实验，用声刺激增强慢波，看记忆是否提升"},
+  {"label":"Potential Follow-up Experiments","lang":"none","paperTitle":"Single-Cell Atlas of the Aging Liver","quote":"Future studies should test whether blocking this pathway in vivo reverses the senescent phenotype.","comment":""},
+
+  {"label":"Others","lang":"en","paperTitle":"Graph Transformers for Traffic Forecasting","quote":"All code and preprocessed datasets are available on GitHub under an MIT license.","comment":"Save the repo for later."},
+  {"label":"Others","lang":"zh","paperTitle":"Language Models for Protein Design","quote":"Rosetta is a software suite for macromolecular modeling first released in the late 1990s.","comment":"这个工具的背景，先记一下"},
+  {"label":"Others","lang":"none","paperTitle":"Gut Microbiota and Depression","quote":"Germ-free mice are animals raised in sterile isolators without any exposure to microorganisms.","comment":""}
+]

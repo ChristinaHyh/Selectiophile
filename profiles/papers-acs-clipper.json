@@ -1,0 +1,63 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "papers-ACS",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:.widget-ArticleFulltext|remove_html:(\"figure > .fig-label,.fig-orig,.fig-modal,.ref-list,.backreferences-title,.article-metadata-panel,.figshare-wrapper,.permissionstatement-section-wrapper,#sr-fig-viewer-action,.article-metadata-standalone-panel\")|markdown}}\n\n## References\n{{selectorHtml:.ref-list|remove_html:(\".crossref-doi,.adsDoiReference,.xslopenurl,.citation-links\")|markdown}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:.al-author-name > .linked-name|first|split:\" \"|last}}({{meta:name:citation_publication_date|slice:0,4 ?? meta:name:citation_online_date|slice:0,4 ?? meta:name:dc.Date|slice:0,4 ?? meta:name:publish_date|slice:0,4}})-{{meta:name:citation_title|split:\" \"|slice:0,3|join:\" \"}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "doi",
+			"value": "{{meta:name:citation_doi}}",
+			"type": "text"
+		},
+		{
+			"name": "paper_id",
+			"value": "{{meta:name:citation_doi|split:\"/\"|last|split:\".\"|last}}",
+			"type": "text"
+		},
+		{
+			"name": "authors",
+			"value": "{{selector:.al-author-name > .linked-name|unique|wikilink}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{meta:name:citation_publication_date ?? meta:name:citation_online_date ?? meta:name:dc.Date ?? meta:name:publish_date ?? published | date:\"YYYY-MM-DD\"}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "journal",
+			"value": "{{meta:name:citation_journal_title}}",
+			"type": "text"
+		},
+		{
+			"name": "collection",
+			"value": "papers",
+			"type": "text"
+		},
+		{
+			"name": "keywords",
+			"value": "{{selectorHtml:.content-metadata-keywords|remove_html:(\".content-metadata-keywords-title\")|markdown|replace:\"/[[]([^[]*?)][(][^)]*[)]/g\":\"$1\"|replace:\"/ *, */g\":\",\"|split:\",\"|unique}}",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://pubs.acs.org/"
+	],
+	"noteNameFormat": "{{meta:name:citation_title|safe_name}}",
+	"path": "references/papers"
+}

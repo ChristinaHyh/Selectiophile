@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Selectiophile",
+  "version": "1.1.0",
+  "default_locale": "en",
+  "minimum_chrome_version": "111",
+  "description": "__MSG_extDescription__",
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": ["https://api.typesafe.ai/*"],
+  "optional_host_permissions": ["*://*/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": {
+    "default_title": "Selectiophile",
+    "default_popup": "popup/popup.html",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png" }
+  },
+  "options_ui": { "page": "options/options.html", "open_in_tab": true }
+}

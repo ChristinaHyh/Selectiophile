@@ -1,0 +1,63 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "papers-MDPI",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:#article-contents|remove_html:(\".cfix-stub,#FiguresandTable,#FiguresandTables,#html-references_list,#html-copyright,.html-fn_group\")|markdown}}\n\n{{selectorHtml:[id^=table_body_display_]:not(.cfix-inlined)|join:\" \"|replace:\"/^(?=<)/\":\"<h2>Tables</h2>\"|markdown}}\n\n## References\n\n{{selectorHtml:#html-references_list|remove_html:(\"h2,.google-scholar,.cross-ref\")|markdown}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:meta[name=citation_author]?content|first|split:\",\"|first}}({{meta:name:citation_publication_date|slice:0,4}})-{{meta:name:citation_title|split:\" \"|slice:0,3|join:\" \"}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "doi",
+			"value": "{{meta:name:citation_doi}}",
+			"type": "text"
+		},
+		{
+			"name": "paper_id",
+			"value": "{{meta:name:citation_doi|replace:\"/[^0-9]/g\":\"\"|slice:-8}}",
+			"type": "text"
+		},
+		{
+			"name": "authors",
+			"value": "{{selector:meta[name=citation_author]?content|replace:\"/([A-Za-zÀ-ɏ .-]+), ([A-Za-zÀ-ɏ .-]+)/g\":\"$2 $1\"|unique|wikilink}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{meta:name:citation_publication_date|date:\"YYYY-MM-DD\"}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "journal",
+			"value": "{{meta:name:citation_journal_title}}",
+			"type": "text"
+		},
+		{
+			"name": "collection",
+			"value": "papers",
+			"type": "text"
+		},
+		{
+			"name": "keywords",
+			"value": "{{selector:meta[name^=dc][name$=subject]?content|unique}}",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://www.mdpi.com/"
+	],
+	"noteNameFormat": "{{meta:name:citation_title|safe_name}}",
+	"path": "references/papers"
+}

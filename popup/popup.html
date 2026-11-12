@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>Selectiophile</title>
+<link rel="stylesheet" href="../options/shared.css">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <img id="logo" src="../icons/icon.svg" alt="">
+  <span class="name"><small>MARK · OBSIDIAN</small>Selectiophile</span>
+</header>
+
+<section>
+  <div id="host" class="host"></div>
+  <div id="state" class="state"></div>
+  <button id="toggleSite"></button>
+  <p id="siteOut"></p>
+</section>
+
+<section id="reviewBox" hidden>
+  <div class="between">
+    <div class="review-text">
+      <div class="heading" data-i18n="COMMENTS · 简评"></div>
+      <p id="reviewState" class="hint"></p>
+    </div>
+    <button id="reviewOpen" class="small primary"></button>
+  </div>
+  <p id="reviewOut" class="hint"></p>
+</section>
+
+<section class="checks">
+  <div id="folderCheck" class="check"><span class="dot"></span><span id="folder" class="text"></span><button id="grant" class="small" hidden></button></div>
+  <div id="jevCheck" class="check"><span class="dot"></span><span id="jev" class="text"></span></div>
+</section>
+
+<section id="profileBox" hidden>
+  <div class="heading" data-i18n="METADATA · 元数据配置"></div>
+  <div class="picker-wrap">
+    <button id="profileCurrent" class="picker wide" aria-haspopup="listbox" aria-expanded="false"><span id="profileLabel"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div id="profileList" class="picker-list" role="listbox" hidden></div>
+  </div>
+  <div id="clipRow" class="clip-row" hidden>
+    <div class="between">
+      <span id="clipState" class="clip-state"></span>
+      <button id="clipRun" class="small"></button>
+    </div>
+    <p id="clipOut" class="hint"></p>
+  </div>
+</section>
+
+<section id="pinBox" hidden>
+  <div class="heading" data-i18n="PIN · 钉住笔记">PIN · 钉住笔记</div>
+  <div id="pinnedRow" class="between" hidden>
+    <span id="pinned" class="pinned"></span>
+    <button id="unpin" class="icon-btn on" data-i18n-title="取消钉住"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg></button>
+  </div>
+  <div id="pinRow" class="picker-wrap" hidden>
+    <div class="between">
+      <button id="pinCurrent" class="picker" aria-haspopup="listbox" aria-expanded="false"><span id="pinLabel"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button id="pin" class="icon-btn" data-i18n-title="钉住一篇笔记"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg></button>
+    </div>
+    <div id="pinList" class="picker-list" role="listbox" hidden></div>
+  </div>
+</section>
+
+<section id="pendingBox" hidden>
+  <div class="between" style="margin-bottom:8px">
+    <div class="heading" data-i18n="PENDING · 待处理">PENDING · 待处理</div>
+    <button id="retry" class="small" data-i18n="全部重试">全部重试</button>
+  </div>
+  <ul id="pending"></ul>
+</section>
+
+<section id="recentBox" hidden>
+  <div class="heading" data-i18n="RECENT · 最近添加">RECENT · 最近添加</div>
+  <ul id="recent"></ul>
+</section>
+
+<footer>
+  <button id="options" data-i18n="打开设置">打开设置</button>
+</footer>
+<script type="module" src="popup.js"></script>
+</body>
+</html>

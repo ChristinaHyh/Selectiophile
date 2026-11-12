@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="Selectiophile 设置">Selectiophile 设置</title>
+<link rel="icon" type="image/svg+xml" href="../icons/icon.svg">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="options.css">
+</head>
+<body>
+<aside class="nav">
+  <div class="brand"><img id="brandIcon" src="../icons/icon.svg" alt=""><div><small>MARK · OBSIDIAN</small><b>Selectiophile</b></div></div>
+  <a href="#folderSection"><i style="--c:var(--c1)"></i><span data-i18n="笔记文件夹"></span></a>
+  <a href="#jevSection"><i style="--c:var(--c2)"></i><span data-i18n="Jev 路由"></span></a>
+  <a href="#sitesSection"><i style="--c:var(--c3)"></i><span data-i18n="启用的网站"></span></a>
+  <a href="#docSection"><i style="--c:var(--c4)"></i><span data-i18n="笔记文档配置"></span></a>
+  <a href="#lookSection"><i style="--c:var(--c5)"></i><span data-i18n="外观"></span></a>
+  <a href="#backupSection"><i style="--c:var(--c6)"></i><span data-i18n="备份与恢复"></span></a>
+  <div class="nav-foot">READ · MARK · KEEP</div>
+</aside>
+<main>
+  <div class="lang-bar">
+    <div id="langSeg" class="seg" role="group" aria-label="Language / 语言">
+      <button data-lang="zh">中文</button>
+      <button data-lang="en">English</button>
+    </div>
+  </div>
+  <div id="welcome" class="banner" hidden>
+    <h3 data-i18n="开始使用前还差几步："></h3>
+    <ol>
+      <li data-i18n="选择 Obsidian 库的文件夹。"></li>
+      <li data-i18n="填写 Jev API Key。没有 Key 也能用，只是要手动选择内容块。"></li>
+      <li data-i18n="打开要读的网页，点工具栏图标，再点&quot;加入白名单&quot;。"></li>
+    </ol>
+  </div>
+
+  <section id="folderSection">
+    <div class="section-title"><span class="index">01 · FOLDER</span><h2 data-i18n="笔记文件夹"></h2></div>
+    <div id="folderCard" class="card">
+      <p class="help" data-i18n="选择 Obsidian 库的文件夹。笔记和剪藏的原文都存在这里，具体位置在“笔记文档配置”的各类别里设置。"></p>
+      <div class="inline">
+        <button id="pick" class="primary" data-i18n="选择文件夹"></button>
+        <button id="regrant" data-i18n="重新授权"></button>
+      </div>
+      <div id="folderCheck" class="check"><span class="dot"></span><span id="folder" class="text"></span></div>
+      <p id="folderOut" class="result"></p>
+      <div id="folderDrop" class="drop-zone drop-help">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10v6"/><path d="m9 13 3 3 3-3"/></svg>
+        <span data-i18n="也可以把文件夹从文件管理器拖到这里。"></span>
+      </div>
+    </div>
+    <div id="dashCard" class="card">
+      <h3 data-i18n="看板"></h3>
+      <p class="help" data-i18n="用 Dataview 表格列出笔记和入库原文，需要 Dataview 插件才能显示。"></p>
+      <label class="toggle"><input id="dashAuto" type="checkbox"><span data-i18n="自动检测，缺失时创建"></span></label>
+      <p class="help toggle-help" data-i18n="每次保存划线时检测。关闭后不会自动创建。"></p>
+      <div class="field">
+        <label for="dashName" data-i18n="文件名"></label>
+        <div class="inline"><input id="dashName" placeholder="_dashboard" maxlength="80"><code>.md</code></div>
+      </div>
+      <div class="field">
+        <label for="dashFolder" data-i18n="存放位置"></label>
+        <div class="dash-folder">
+          <div id="dashFolderBox"></div>
+          <div id="dashDrop" class="drop-zone drop-help">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10v6"/><path d="m9 13 3 3 3-3"/></svg>
+            <span data-i18n="也可以把库里的文件夹拖到这里，设为存放位置。"></span>
+          </div>
+        </div>
+      </div>
+      <p class="help dash-help" data-i18n-html="看板内容为预设，表头随设置页语言切换。支持自定义：在 Obsidian 里直接修改看板笔记即可，写法参考 &lt;a href=&quot;https://blacksmithgu.github.io/obsidian-dataview/queries/structure/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Dataview 语法&lt;/a&gt;，改过的看板不会被覆盖。"></p>
+      <div class="inline">
+        <button id="dashCreate" class="small" data-i18n="立即创建"></button>
+        <button id="dashOverwrite" class="small" hidden data-i18n="用预设覆盖"></button>
+      </div>
+      <p id="dashOut" class="result"></p>
+      <p class="help toggle-help" data-i18n="改名或换位置后，旧文件不会被删除，也不再更新。"></p>
+    </div>
+  </section>
+
+  <section id="jevSection">
+    <div class="section-title"><span class="index">02 · ROUTING</span><h2 data-i18n="Jev 路由"></h2></div>
+    <div class="card">
+      <p class="help" data-i18n="Key 只存在本机。没有 Key 或 Jev 不可用时，插件会让你手动选择内容块。判断存放位置时，划线、评论、所在段落、网页标题和网址，以及候选笔记的标题和小标题，会发送到 Jev（TypeSafe AI）；在聊天网站第一次划线时，还会发送前几轮对话。"></p>
+      <div class="inline">
+        <input id="key" type="password" autocomplete="off" data-i18n-placeholder="粘贴 Key">
+        <button id="saveKey" data-i18n="保存"></button>
+        <button id="testKey" data-i18n="测试"></button>
+      </div>
+      <p id="keyOut" class="result"></p>
+    </div>
+    <div class="card">
+      <div class="field first">
+        <label for="autoSave" data-i18n="自动归档的概率门槛"></label>
+        <div class="inline"><input id="autoSave" type="number" min="50" max="100" step="1"><span class="unit">%</span></div>
+      </div>
+      <p class="help" data-i18n="Jev 判断的概率达到这个值时直接保存，否则弹出选项让你选。调低会减少询问，但更容易存错；设为 100% 时几乎每条都会询问。默认 90%，可设 50–100%。"></p>
+    </div>
+    <div class="card">
+      <div class="field first">
+        <label for="rounds" data-i18n="聊天网站读取前几轮对话"></label>
+        <input id="rounds" type="number" min="0" max="20" step="1">
+      </div>
+      <p class="help" data-i18n="在聊天网站上第一次划线时，插件把前几轮对话和最近 15 篇笔记的标题一起发给 Jev，判断这个对话讨论的是哪篇笔记。之后这个对话不再读取，只根据划线在已关联的笔记和标题里判断。设为 0 则不读取对话。"></p>
+    </div>
+  </section>
+
+  <section id="sitesSection">
+    <div class="section-title"><span class="index">03 · SITES</span><h2 data-i18n="启用的网站"></h2></div>
+    <div class="card">
+      <div id="modeSeg" class="seg" role="group">
+        <button data-mode="whitelist" data-i18n="白名单"></button>
+        <button data-mode="blacklist" data-i18n="黑名单"></button>
+        <button data-mode="all" data-i18n="所有网站"></button>
+      </div>
+      <p id="modeHelp" class="help mode-help"></p>
+      <div id="siteEditor" class="inline">
+        <input id="siteInput" placeholder="https://www.nature.com/…">
+        <button id="addSite" data-i18n="添加"></button>
+      </div>
+      <ul id="sites" class="sites"></ul>
+      <p id="siteOut" class="result bad"></p>
+      <p class="help discussion-help" data-i18n="ChatGPT、Claude、Gemini 等聊天网站会按&quot;讨论&quot;处理：不按网址绑定，由 Jev 根据对话开头判断笔记，不确定时存到最近一篇。条目的来源链接显示为 GPT、Gemini 等名称。"></p>
+    </div>
+  </section>
+
+  <section id="docSection">
+    <div class="section-title"><span class="index">04 · DOCUMENTS</span><h2 data-i18n="笔记文档配置"></h2></div>
+    <p class="section-help help" data-i18n="网页按匹配到的元数据配置归入文档类别；没有匹配的配置时，论文归入学术文献，其他网页归入网页文章。"></p>
+    <p class="section-help help" data-i18n="页面简评写进笔记的 comments 属性。剪藏的原文在笔记的 references 属性和 References 标题下链接。"></p>
+    <p class="tip help" data-i18n="剪藏公式：公式没剪下来时，在网页的公式上右键，在 MathJax 菜单的 Options 里勾选 Include Hidden MathML，再剪藏一次。"></p>
+    <div id="docTypes"></div>
+    <div class="inline add-type-row">
+      <button id="addDocType" data-i18n="新增类别"></button>
+      <button id="profileTemplate" class="quiet" data-i18n="下载配置模板"></button>
+    </div>
+    <p id="docOut" class="result"></p>
+    <input id="profileFile" type="file" accept="application/json,.json" multiple hidden>
+    <input id="templateFile" type="file" accept=".md,.markdown,text/markdown,text/plain" hidden>
+  </section>
+
+  <section id="lookSection">
+    <div class="section-title"><span class="index">05 · APPEARANCE</span><h2 data-i18n="外观"></h2></div>
+    <div id="colorCard" class="card">
+      <h3 data-i18n="划线颜色"></h3>
+      <p class="help" data-i18n="给每种颜色命名用途。用途会以上标写在笔记的&quot;原文&quot;链接旁，也会告诉 Jev 帮助归类。改名只影响之后的划线，已写入的条目不变。笔记里的引用前会显示对应颜色的色块。"></p>
+      <div id="colors" class="colors"></div>
+      <p id="colorOut" class="result"></p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="快捷键"></h3>
+      <p class="help" data-i18n="前两个在选中文字后按下，页面简评不用选中文字；在输入框中都不生效。点击输入框后按下组合键，Backspace 清除。"></p>
+      <div class="field"><label for="shortcutSave" data-i18n="高亮划线"></label><input id="shortcutSave" class="shortcut" readonly></div>
+      <div class="field"><label for="shortcutComment" data-i18n="笔记记录"></label><input id="shortcutComment" class="shortcut" readonly></div>
+      <div class="field"><label for="shortcutReview" data-i18n="页面简评"></label><input id="shortcutReview" class="shortcut" readonly></div>
+      <p id="shortcutOut" class="result bad"></p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="划线行为"></h3>
+      <label class="toggle"><input id="showHighlights" type="checkbox"><span data-i18n="在网页上显示高亮"></span></label>
+      <p class="help toggle-help" data-i18n="关闭后，划线和评论只写入 Obsidian，网页上不显示高亮，也不保存定位信息。已有的高亮会隐藏，重新打开后恢复。"></p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="配色"></h3>
+      <p class="help" data-i18n="作用于网页上的面板、设置页、弹窗和工具栏图标。"></p>
+      <div id="themes" class="themes"></div>
+    </div>
+    <div class="card">
+      <h3 data-i18n="悬浮按钮"></h3>
+      <p class="help" data-i18n="选中文字时出现的按钮。"></p>
+      <div id="toolbarSeg" class="themes" role="group"></div>
+    </div>
+    <div class="card">
+      <h3 data-i18n="悬浮图钉"></h3>
+      <label class="toggle"><input id="showFab" type="checkbox"><span data-i18n="在网页上显示悬浮图钉"></span></label>
+      <p class="help toggle-help" data-i18n="关闭后，点工具栏图标，在弹窗里钉住或取消。钉住期间图标上显示 PIN。"></p>
+    </div>
+  </section>
+
+  <section id="backupSection">
+    <div class="section-title"><span class="index">06 · BACKUP</span><h2 data-i18n="备份与恢复"></h2></div>
+    <div class="card">
+      <p class="help" data-i18n="备份文件包含网页高亮的定位和颜色、页面与笔记的绑定、对话与笔记的关联、最近记录、待处理划线和所有设置。不包含 Jev Key。划线原文和评论在笔记里，请随 Obsidian 库一起备份。"></p>
+      <p class="help" data-i18n="恢复是合并，不会删除现有数据：同一条记录保留本机的版本，颜色用途和外观使用备份里的。恢复后要重新选择文件夹，并为新增的网站授权。"></p>
+      <div class="inline">
+        <button id="exportData" class="primary" data-i18n="导出备份"></button>
+        <button id="importData" data-i18n="从备份恢复"></button>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </div>
+      <p id="backupOut" class="result"></p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="清理高亮"></h3>
+      <p class="help" data-i18n="笔记或条目在 Obsidian 里删除后，网页上的高亮会留下。这里可以一键清除这些高亮，不会改动任何笔记。"></p>
+      <div class="inline">
+        <button id="scanOrphans" data-i18n="检查已删除笔记的高亮"></button>
+        <button id="clearOrphans" class="primary" hidden></button>
+      </div>
+      <p id="orphanOut" class="result"></p>
+    </div>
+  </section>
+</main>
+<script type="module" src="options.js"></script>
+</body>
+</html>

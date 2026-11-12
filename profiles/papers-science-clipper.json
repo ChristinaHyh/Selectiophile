@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "papers-Science",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:#editor-abstract|remove_html:(\".figure-pop-btn,.figure-extra,.figure-links,.core-tools,svg\")|markdown}}\n\n{{selectorHtml:#structured-abstract|remove_html:(\".figure-pop-btn,.figure-extra,.figure-links,.core-tools,svg\")|markdown}}\n\n{{selectorHtml:#abstract|remove_html:(\".figure-pop-btn,.figure-extra,.figure-links,.core-tools,svg\")|markdown}}\n\n{{selectorHtml:#bodymatter|remove_html:(\".figure-pop-btn,.figure-extra,.figure-links,.core-tools,svg\")|markdown}}\n\n## References\n{{selectorHtml:#bibliography|remove_html:(\"h2,.external-links,.truncation-wrapper,svg\")|markdown}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:[property=author] [property=familyName]|first}}({{meta:name:dc.Date|slice:0,4}})-{{meta:name:dc.Title|split:\" \"|slice:0,3|join:\" \"}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "doi",
+			"value": "{{url|replace:\"/^.*?doi[/](?:abs[/]|full[/]|epdf[/]|pdf[/])?(10[.][^?#]+).*$/\":\"$1\"}}",
+			"type": "text"
+		},
+		{
+			"name": "paper_id",
+			"value": "{{url|replace:\"/^.*?doi[/](?:abs[/]|full[/]|epdf[/]|pdf[/])?(10[.][^?#]+).*$/\":\"$1\"|split:\"/\"|last}}",
+			"type": "text"
+		},
+		{
+			"name": "authors",
+			"value": "{{selector:meta[name^=dc][name$=Creator]?content|unique|wikilink}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{meta:name:dc.Date|date:\"YYYY-MM-DD\"}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "journal",
+			"value": "{{meta:name:citation_journal_title ?? meta:property:og:site_name}}",
+			"type": "text"
+		},
+		{
+			"name": "collection",
+			"value": "papers",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.science.org/doi/"
+	],
+	"noteNameFormat": "{{meta:name:dc.Title ?? title|safe_name}}",
+	"path": "references/papers"
+}
