@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Selectiophile browser extension privacy policy. Learn what stays on your device and when optional AI processing is used.">
+  <title>Privacy Policy · Selectiophile</title>
+  <style>
+    :root {
+      --paper: #fbfaf8;
+      --ink: #30323b;
+      --soft: #626675;
+      --rule: #e5e3df;
+      --link: #56678e;
+      --focus: #b4bfd3;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --paper: #1d1e24; --ink: #e8e8ed; --soft: #aaadba; --rule: #383a43; --link: #b0bfdf; --focus: #7288b2; color-scheme: dark; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; -webkit-font-smoothing: antialiased; }
+    main { max-width: 760px; padding: 52px 32px 100px; margin: 0 auto; }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--rule); padding-bottom: 22px; margin-bottom: 53px; }
+    .wordmark { color: var(--ink); text-decoration: none; font: 600 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+    .lang { color: var(--soft); font-size: 12px; white-space: nowrap; }
+    .lang a { text-decoration: none; }
+    .lang .sep { padding: 0 7px; color: var(--soft); }
+    h1 { margin: 0 0 10px; font: normal 37px/1.25 Georgia, "Noto Serif SC", "Songti SC", serif; letter-spacing: -.03em; }
+    .meta { color: var(--soft); font-size: 12px; margin: 0 0 33px; }
+    h2 { font: 600 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: -.01em; margin: 35px 0 9px; }
+    p { margin: 0 0 15px; }
+    ul { margin: 7px 0 16px; padding-left: 21px; }
+    li { padding-left: 3px; margin-bottom: 7px; }
+    a { color: var(--link); text-underline-offset: 3px; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 2px; }
+    code { font: .91em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 70px 0 59px; }
+    .foot { margin-top: 54px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--soft); font-size: 12px; }
+    .foot a { text-decoration: none; }
+    #english { scroll-margin-top: 28px; }
+    @media (max-width: 600px) {
+      main { padding: 28px 22px 70px; }
+      .top { padding-bottom: 18px; margin-bottom: 37px; }
+      h1 { font-size: 30px; }
+      body { font-size: 14px; line-height: 1.78; }
+      h2 { font-size: 16px; margin-top: 29px; }
+      .divider { margin: 55px 0 44px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="top">
+      <a class="wordmark" href="https://github.com/ChristinaHyh/Selectiophile">Selectiophile</a>
+      <nav class="lang" aria-label="Language / 语言"><a href="#chinese" lang="zh-CN">中文</a><span class="sep">/</span><a href="#english" lang="en">English</a></nav>
+    </header>
+
+    <section id="chinese" lang="zh-CN" aria-labelledby="title-zh">
+      <h1 id="title-zh">隐私政策</h1>
+      <p class="meta">生效日期：2026 年 11 月 12 日</p>
+      <p>Selectiophile（原名 Lectiophile）是用于网页划线、评论和剪藏的浏览器扩展，可将内容保存到你选择的本地 Obsidian 文件夹。插件没有开发者运营的服务器；开发者不接收你的笔记和浏览内容。</p>
+
+      <h2>保存在本地的数据</h2>
+      <p>笔记、评论及剪藏原文以 Markdown 文件保存在你指定的文件夹。插件会读取该文件夹中的笔记，以识别和定位内容。</p>
+      <p>设置、高亮信息、网页与笔记的关联、模板及 Jev API Key 保存在浏览器扩展存储（<code>chrome.storage.local</code>）；文件夹访问句柄保存在 IndexedDB。API Key 在本地保存时未单独加密，且不会包含在导出的备份中。</p>
+
+      <h2>可选的 AI 数据处理</h2>
+      <p>只有在你提供 Jev API Key 并使用 AI 归类功能时，插件才向 <a href="https://typesafe.ai/" target="_blank" rel="noopener noreferrer">TypeSafe AI（Jev）</a> 发送归类所需的信息，包括划线、评论、相关段落、来源标题或网址，以及候选笔记的标题和小标题。首次处理 AI 对话时，还可能发送你在设置中允许的前几轮对话（设为 0 可关闭）。API Key 用于请求认证。</p>
+      <p>这些信息由 TypeSafe AI 按其政策处理。没有 API Key 时，插件不向 Jev 发送内容；网页剪藏也不会发送给 Jev。</p>
+
+      <h2>数据控制与使用范围</h2>
+      <ul>
+        <li>你可以选择启用的网站、关闭 AI 对话上下文，或不使用 Jev。</li>
+        <li>卸载扩展会清除其浏览器本地存储；已写入 Obsidian 文件夹的文件需由你自行管理。</li>
+        <li>插件不提供广告或使用分析，也不收集完整浏览历史或出售用户数据。</li>
+      </ul>
+
+      <h2>更新与联系</h2>
+      <p>政策变更将发布在此页面并更新日期。如有疑问，请通过 <a href="https://github.com/ChristinaHyh/Selectiophile" target="_blank" rel="noopener noreferrer">GitHub 项目仓库</a> 联系开发者。</p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="english" lang="en" aria-labelledby="title-en">
+      <h1 id="title-en">Privacy Policy</h1>
+      <p class="meta">Effective November 12, 2026</p>
+      <p>Selectiophile (formerly Lectiophile) is a browser extension for highlighting, commenting on, and clipping web pages into an Obsidian folder you choose. The extension has no developer-operated server. The developer does not receive your notes or browsing content.</p>
+
+      <h2>Data stored locally</h2>
+      <p>Notes, comments, and clipped pages are saved as Markdown files in your selected folder. The extension reads notes in that folder to locate related content.</p>
+      <p>Settings, highlights, page-to-note associations, templates, and your Jev API key are stored in <code>chrome.storage.local</code>. IndexedDB stores your folder access handle. The API key is not separately encrypted in local storage and is excluded from exported backups.</p>
+
+      <h2>Optional AI processing</h2>
+      <p>Only when you supply a Jev API key and use AI filing does the extension send necessary context to <a href="https://typesafe.ai/" target="_blank" rel="noopener noreferrer">TypeSafe AI (Jev)</a>: highlighted text, comments, surrounding passages, source titles or URLs, and candidate note titles and headings. For the first highlight in an AI conversation, it may also send the initial turns allowed by your settings (set this to 0 to disable). Your API key authenticates the request.</p>
+      <p>TypeSafe AI processes that information under its own policies. Without an API key, no content is sent to Jev. Page clipping does not send content to Jev.</p>
+
+      <h2>Your control and our practices</h2>
+      <ul>
+        <li>Choose which sites are enabled, disable AI conversation context, or use the extension without Jev.</li>
+        <li>Uninstalling clears the extension's local browser storage. Files already saved to your Obsidian folder remain yours to manage.</li>
+        <li>We do not use ads or analytics, collect your full browsing history, or sell user data.</li>
+      </ul>
+
+      <h2>Updates and contact</h2>
+      <p>Changes to this policy will be reflected here with a revised date. For questions, contact the developer through the <a href="https://github.com/ChristinaHyh/Selectiophile" target="_blank" rel="noopener noreferrer">GitHub repository</a>.</p>
+    </section>
+    <footer class="foot">© 2026 Selectiophile · <a href="#chinese">返回顶部 / Back to top</a></footer>
+  </main>
+</body>
+</html>
