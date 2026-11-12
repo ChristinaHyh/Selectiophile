@@ -8,47 +8,106 @@
   <title>Privacy Policy · Selectiophile</title>
   <style>
     :root {
-      --paper: #fbfaf8;
-      --ink: #30323b;
-      --soft: #626675;
-      --rule: #e5e3df;
-      --link: #56678e;
-      --focus: #b4bfd3;
+      /* Selectiophile's dusk palette, adapted for a quiet editorial page. */
+      --paper: #f5f3f2;
+      --surface: #fffdfb;
+      --ink: #30374b;
+      --soft: #6c7186;
+      --rule: #e7e4eb;
+      --accent: #5d6a8f;
+      --focus: #838cac;
+      --accent-soft: #eceef6;
+      --c1: #e6b8b5; --c2: #b8cbda; --c3: #d7cee7;
+      --c4: #c0ccae; --c5: #a9cdc6; --c6: #ebc86c;
       color-scheme: light;
     }
     @media (prefers-color-scheme: dark) {
-      :root { --paper: #1d1e24; --ink: #e8e8ed; --soft: #aaadba; --rule: #383a43; --link: #b0bfdf; --focus: #7288b2; color-scheme: dark; }
+      :root {
+        --paper: #202431;
+        --surface: #272d3d;
+        --ink: #e8e9f1;
+        --soft: #b0b5c9;
+        --rule: #41475a;
+        --accent: #bac6e9;
+        --focus: #a9a7cf;
+        --accent-soft: #343d55;
+        --c1: #d7a6aa; --c2: #91b9d0; --c3: #baa9d3;
+        --c4: #a6b99a; --c5: #8cb9b1; --c6: #d6b868;
+        color-scheme: dark;
+      }
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; -webkit-font-smoothing: antialiased; }
-    main { max-width: 760px; padding: 52px 32px 100px; margin: 0 auto; }
-    .top { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--rule); padding-bottom: 22px; margin-bottom: 53px; }
-    .wordmark { color: var(--ink); text-decoration: none; font: 600 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse 60% 35% at 100% 0%, color-mix(in srgb, var(--c3) 17%, transparent), transparent),
+        radial-gradient(ellipse 45% 30% at 0% 100%, color-mix(in srgb, var(--c1) 10%, transparent), transparent),
+        var(--paper);
+      background-attachment: fixed;
+      color: var(--ink);
+      font: 15px/1.85 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: color-mix(in srgb, var(--c3) 65%, transparent); }
+    main { max-width: 754px; padding: 52px 32px 100px; margin: 0 auto; }
+    .top {
+      position: relative;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 0 24px; margin-bottom: 52px;
+    }
+    .top::before {
+      content: ""; position: absolute; left: 0; top: 0;
+      width: 144px; height: 4px; border-radius: 12px;
+      background: linear-gradient(90deg, var(--c1) 0 16.66%, var(--c2) 16.66% 33.33%, var(--c3) 33.33% 50%, var(--c4) 50% 66.66%, var(--c5) 66.66% 83.33%, var(--c6) 83.33% 100%);
+    }
+    .wordmark {
+      color: var(--ink); text-decoration: none;
+      font: 600 14px/1.4 Georgia, "Noto Serif SC", "Songti SC", serif;
+      letter-spacing: .012em;
+    }
+    .wordmark:hover { color: var(--accent); }
     .lang { color: var(--soft); font-size: 12px; white-space: nowrap; }
-    .lang a { text-decoration: none; }
-    .lang .sep { padding: 0 7px; color: var(--soft); }
-    h1 { margin: 0 0 10px; font: normal 37px/1.25 Georgia, "Noto Serif SC", "Songti SC", serif; letter-spacing: -.03em; }
-    .meta { color: var(--soft); font-size: 12px; margin: 0 0 33px; }
-    h2 { font: 600 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: -.01em; margin: 35px 0 9px; }
+    .lang a { text-decoration: none; padding: 5px 2px; }
+    .lang .sep { padding: 0 7px; color: var(--soft); opacity: .6; }
+    h1 {
+      margin: 0 0 10px;
+      font: 400 37px/1.28 Georgia, "Noto Serif SC", "Songti SC", serif;
+      letter-spacing: -.025em;
+    }
+    .meta { color: var(--soft); font-size: 12px; letter-spacing: .025em; margin: 0 0 32px; }
+    h2 {
+      font: 600 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+      letter-spacing: -.01em; margin: 37px 0 10px;
+    }
     p { margin: 0 0 15px; }
-    ul { margin: 7px 0 16px; padding-left: 21px; }
+    ul { margin: 8px 0 17px; padding-left: 21px; }
     li { padding-left: 3px; margin-bottom: 7px; }
-    a { color: var(--link); text-underline-offset: 3px; }
+    li::marker { color: var(--accent); }
+    a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
     a:hover { text-decoration: underline; }
     a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 2px; }
-    code { font: .91em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
-    .divider { border: none; border-top: 1px solid var(--rule); margin: 70px 0 59px; }
-    .foot { margin-top: 54px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--soft); font-size: 12px; }
+    code {
+      font: .9em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 2px 5px; border-radius: 5px; overflow-wrap: anywhere;
+    }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 70px 0 60px; }
+    .foot {
+      margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule);
+      color: var(--soft); font-size: 12px;
+    }
     .foot a { text-decoration: none; }
-    #english { scroll-margin-top: 28px; }
+    #chinese, #english { scroll-margin-top: 28px; }
     @media (max-width: 600px) {
-      main { padding: 28px 22px 70px; }
-      .top { padding-bottom: 18px; margin-bottom: 37px; }
-      h1 { font-size: 30px; }
-      body { font-size: 14px; line-height: 1.78; }
-      h2 { font-size: 16px; margin-top: 29px; }
-      .divider { margin: 55px 0 44px; }
+      main { padding: 24px 22px 68px; }
+      .top { padding: 18px 0 20px; margin-bottom: 38px; }
+      .top::before { width: 120px; height: 3px; }
+      h1 { font-size: 31px; }
+      body { font-size: 14px; line-height: 1.8; }
+      h2 { font-size: 16px; margin-top: 30px; }
+      .divider { margin: 54px 0 44px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
